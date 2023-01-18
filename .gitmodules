@@ -1,0 +1,8 @@
+[submodule "creditcoin"]
+	path = creditcoin
+	url = https://github.com/gluwa/creditcoin
+	branch = multi-block-migration-testing
+[submodule "creditcoin-cli"]
+	path = creditcoin-cli
+	url = https://github.com/nathanwhit/creditcoin-cli
+	branch = main
