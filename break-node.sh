@@ -22,7 +22,7 @@ running=false
 
 node_cmd="$cc_node --chain $chainspec --base-path ./data --validator --mining-threads 1 --mining-key 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY --execution wasm"
 
-echo 'Starting up the creditcoin node'
+echo 'Starting up the creditcoin node. To see the live logging output, set the environment var PRINT_LOGS to true'
 while read -r log_line
 do
     if [[ "$PRINT_LOGS" ]]; then
@@ -39,9 +39,9 @@ do
         $cc_cli send-extrinsic set-code "$wasm_path"
         upgraded=true
     fi
-    if [[ "$log_line" =~ .*"Moved DealOrders!".* ]]; then
+    if [[ "$log_line" =~ .*"migrating partially".* ]]; then
         echo "Killing creditcoin node"
-        killall -9 creditcoin-node
+        killall -2 creditcoin-node
         echo "Should be broken now! Try running with: $node_cmd"
         exit 0
     fi
