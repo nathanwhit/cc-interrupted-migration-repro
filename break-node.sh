@@ -41,7 +41,7 @@ do
     fi
     if [[ "$log_line" =~ .*"migrating partially".* ]]; then
         echo "Killing creditcoin node"
-        killall -2 creditcoin-node
+        killall -9 creditcoin-node
         echo "Should be broken now! Try running with: $node_cmd"
         exit 0
     fi
